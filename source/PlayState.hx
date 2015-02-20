@@ -27,6 +27,7 @@ class PlayState extends FlxState
     private var _hamsterGibs:FlxEmitter;
     private var _endtimer(default, null):FlxTimer;
     private var _explosion:Explosion;
+    private var _ui:UI;
 
     private var BUILDING_PADDING = 2;
     private var MAX_BUILDINGS = 100;
@@ -79,6 +80,9 @@ class PlayState extends FlxState
         _duck.y = FlxG.worldBounds.height / 2.0;
         add(_duck);
         FlxG.camera.follow(_duck, FlxCamera.STYLE_TOPDOWN, null, 1);
+
+        _ui = new UI();
+        add(_ui);
 
         // if flash
         #if linux
@@ -134,6 +138,7 @@ class PlayState extends FlxState
         _buildingGibs = null;
         _endtimer = null;
         _explosion = null;
+        _ui = null;
 		super.destroy();
 	}
 
@@ -160,12 +165,18 @@ class PlayState extends FlxState
         // End condition
         //trace("buildings: " + _buildings.length);
         //trace("ruins: " + _ruins.length);
-        if (_cars.countLiving() == 0 
-            && _buildings.length - _ruins.length <= 2 // so you dont need to destroy everything / search last buildings
+        var alive:Float = _cars.length - _cars.countLiving() + _ruins.length;
+        var total:Float = _cars.length + _buildings.length;
+        var destructionRate:Float = alive / total;
+        //var endCondition:Bool = _cars.countLiving() == 0 && _buildings.length - _ruins.length <= 2 // so you dont need to destroy everything / search last buildings
+        var endCondition:Bool = destructionRate >= 0.95;
+        if (endCondition
             && _endtimer == null) {
             _endtimer = new FlxTimer();
             _endtimer.start(2.0, gotoEndState);
         }
+
+        _ui.updateUI(destructionRate);
 	}	
 
     private function duckOverlapBuilding(duck:Duck, building:Building):Void
