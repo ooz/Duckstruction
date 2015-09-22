@@ -8,12 +8,18 @@ Theme: "What do we do now?"
 How to build it
 ---------------
 
- 1. [Download and install Haxe from here](http://www.openfl.org/documentation/getting-started/installing-openfl/)
- 2. Install HaxeFlixel and its dependencies using Lime:
+ 1. [Download and install haxe.](http://haxe.org/documentation/introduction/building-haxe.html)
+
+ 2. Install lime and openfl:
+
+        haxelib install lime
+        lime install openfl
+
+ 3. Install HaxeFlixel and its dependencies using lime:
 
         lime install flixel
 
- 3. Go to the project directory and run:
+ 4. Go to the project directory and run:
 
         lime test flash
 
