@@ -13,6 +13,7 @@ How to build it
  2. Install lime and openfl:
 
         haxelib install lime
+        haxelib run lime setup
         lime install openfl
 
  3. Install HaxeFlixel and its dependencies using lime:
