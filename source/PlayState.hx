@@ -40,7 +40,9 @@ class PlayState extends FlxState
 	 */
 	override public function create():Void
 	{
+        #if android
 		FlxG.mouse.visible = false;
+        #end
         bgColor = 0xFF000000;
 
         _map = new GameMap();

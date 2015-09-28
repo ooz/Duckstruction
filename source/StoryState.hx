@@ -16,6 +16,9 @@ class StoryState extends FlxState
     override public function create():Void
     {
         FlxG.mouse.visible = true;
+#if android
+        FlxG.mouse.visible = false;
+#end
         bgColor = 0xFFFFFFFF;
 
         FlxG.sound.destroy(true);

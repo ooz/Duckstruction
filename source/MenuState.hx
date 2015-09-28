@@ -24,6 +24,9 @@ class MenuState extends FlxState
 	override public function create():Void
 	{
         FlxG.mouse.visible = true;
+#if android
+        FlxG.mouse.visible = false;
+#end
         bgColor = 0xFFFFFFFF;
 
         _logo = new FlxSprite(0, 0, "assets/images/maskelogo.png");
