@@ -28,6 +28,8 @@ How to build it
 
         lime test windows
 
+        lime test android
+
 <!---
 Idea
 ----
