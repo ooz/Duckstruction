@@ -45,7 +45,7 @@ class AboutState extends FlxState
     private function getVersionCode():String
     {
         // TODO: find a way to get the version code from the Project.xml
-        return "v0.0.1";
+        return "v0.1.0";
     }
 
     private function clickBack():Void
