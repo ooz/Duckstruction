@@ -5,6 +5,12 @@ Global Game Jam 2015
 
 Theme: "What do we do now?"
 
+![Duckstruction story 1](screenshots/ds0.png)
+![Duckstruction story 2](screenshots/ds1.png)
+![Duckstruction rampage 1](screenshots/ds2.png)
+![Duckstruction rampage 2](screenshots/ds3.png)
+![Duckstruction rampage 3](screenshots/ds4.png)
+
 How to build it
 ---------------
 
